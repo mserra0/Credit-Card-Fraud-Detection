@@ -9,13 +9,12 @@ Through advanced techniques such as cost-sensitive learning, resampling methods,
 ## Table of Contents
 1. [Features](#features)
 2. [Installation](#installation)
-3. [Usage](#usage)
-4. [Methodology](#methodology)
-5. [Experiments and Results](#experiments-and-results)
-6. [Conclusions](#conclusions)
-7. [Future Directions](#future-directions)
-8. [Contributors](#contributors)
-9. [License](#license)
+3. [Methodology](#methodology)
+4. [Experiments and Results](#experiments-and-results)
+5. [Conclusions](#conclusions)
+6. [Future Directions](#future-directions)
+7. [Contributors](#contributors)
+8. [License](#license)
 
 ## Features
 - **Dataset preprocessing**: Handles PCA-transformed numerical features (V1 to V28) while retaining raw `Time` and `Amount` features for analysis.
@@ -29,27 +28,12 @@ Through advanced techniques such as cost-sensitive learning, resampling methods,
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/credit-card-fraud-detection.git
+   git clone https://github.com/mserra0/Credit-Card-Fraud-Detection.git
    cd credit-card-fraud-detection
    ```
 2. Install the required dependencies:
    ```bash
    pip install -r requirements.txt
-   ```
-
-## Usage
-1. Prepare the dataset by placing it in the `data/` directory.
-2. Run the preprocessing script:
-   ```bash
-   python preprocess.py
-   ```
-3. Train the model using the selected techniques:
-   ```bash
-   python train.py --model voting_classifier --resampling smote
-   ```
-4. Evaluate the model:
-   ```bash
-   python evaluate.py --metrics f1_macro precision recall
    ```
 
 ## Methodology
