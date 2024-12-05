@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Credit card fraud detection is critical for financial security. This project explores the use of machine learning techniques to identify fraudulent transactions in highly imbalanced datasets. The dataset, provided by Worldline and the Université Libre de Bruxelles, includes 284,807 transactions, with only 0.172% labeled as fraudulent. This extreme imbalance poses significant challenges for model training and evaluation. 
+Credit card fraud detection is critical for financial security. This project explores the use of machine learning techniques to identify fraudulent transactions in highly imbalanced datasets. The dataset, provided by Worldline and the Université Libre de Bruxelles, includes 284,807 transactions, with only **0.172%** labeled as fraudulent. This extreme imbalance poses significant challenges for model training and evaluation. 
 
 Through advanced techniques such as cost-sensitive learning, resampling methods, and ensemble classifiers, this project aims to address these challenges. Evaluation metrics focus on F1 Macro scores, Precision, Recall, and Precision-Recall Area Under Curve (PRAUC) to ensure robust performance.
 
@@ -19,11 +19,11 @@ Through advanced techniques such as cost-sensitive learning, resampling methods,
 ## Features
 - **Dataset preprocessing**: Handles PCA-transformed numerical features (V1 to V28) while retaining raw `Time` and `Amount` features for analysis.
 - **Techniques for handling imbalanced data**:
-  - **Undersampling**: Reduces the majority class to balance the dataset but risks losing critical information.
-  - **Oversampling**: Augments the minority class using synthetic techniques like SMOTE and ADASYN to enhance balance.
-  - **Combination methods**: SMOTEENN combines oversampling with noise reduction from undersampling.
+  - **Undersampling**: Reduces the majority class to balance the dataset but risks losing critical information. *RandomUnderSampler & ClusterCentroids*
+  - **Oversampling**: Augments the minority class using synthetic techniques like *SMOTE* and *ADASYN* to enhance balance.
+  - **Combination methods**: *SMOTEENN* combines oversampling with noise reduction from undersampling.
   - **Cost-sensitive learning**: Adjusts the model's focus on minimizing misclassification costs for the minority class.
-- **Advanced evaluation**: Uses F1 Macro, Precision-Recall Curves, and PRAUC to assess performance under imbalance.
+- **Evaluation**: Uses *F1 Macro*, *Precision-Recall* Curves, and *PRAUC* to assess performance under imbalance.
 
 ## Installation
 1. Clone the repository:
@@ -46,7 +46,7 @@ The project begins with a comprehensive analysis of the dataset:
 
 ### Techniques for Imbalanced Data
 1. **Undersampling**:
-   - Methods such as RandomUnderSampler and Cluster Centroids are used to reduce the size of the majority class.
+   - Methods such as **RandomUnderSampler** and **Cluster Centroids** are used to reduce the size of the majority class.
    - Limitations: Loss of valuable information leads to reduced performance (e.g., F1 Macro of 0.537 with KNN and RandomUnderSampler).
 
 2. **Oversampling**:
@@ -55,15 +55,15 @@ The project begins with a comprehensive analysis of the dataset:
    - Results: Significant performance improvement (F1 Macro of 0.924 with Random Forest and SMOTE).
 
 3. **Combination Sampling**:
-   - **SMOTEENN**: Combines SMOTE with Edited Nearest Neighbors (ENN), which removes noise from the majority class.
+   - **SMOTEENN**: Combines *SMOTE* with *Edited Nearest Neighbors* (ENN), which removes noise from the majority class.
    - Results: Moderate success (F1 Macro of 0.91), though key fraudulent outliers may be removed, limiting further gains.
 
 4. **Cost-Sensitive Learning**:
    - Models like Random Forest, Logistic Regression, KNN, and XGBoost are modified to weigh the cost of misclassifying the minority class.
    - A **Voting Classifier**, combining the best-performing models, yielded the highest performance:
-     - F1 Macro: 0.938
-     - PRAUC: 0.86
-     - Accuracy: 99.9%
+     - *F1 Macro*: 0.938
+     - *PRAUC*: 0.86
+     - *Accuracy*: 99.9%
 
 ## Experiments and Results
 - **Undersampling**: Effective for simplifying data but suffered from overfitting due to loss of information.
@@ -93,5 +93,3 @@ The study underscores the need for a careful trade-off between precision and rec
 ## Contributors
 - **Marc Serra Ortega** - Universitat Autònoma de Barcelona (UAB)
 
-## License
-This project is licensed under the [MIT License](LICENSE).
