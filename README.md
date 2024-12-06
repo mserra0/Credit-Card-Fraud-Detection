@@ -38,6 +38,10 @@ Through advanced techniques such as cost-sensitive learning, resampling methods,
 
 ## Methodology
 
+<p align="center">
+ <img src="figs/imbalance.png" width="500" style="border-radius: 0%;"
+</p>
+
 ### Exploratory Data Analysis (EDA)
 The project begins with a comprehensive analysis of the dataset:
 - **Temporal Analysis**: Identifies patterns in transaction timing that correlate with fraud.
@@ -71,6 +75,15 @@ The project begins with a comprehensive analysis of the dataset:
 - **Combined Sampling**: SMOTEENN showed promise but was less effective than standalone SMOTE in some cases.
 - **Cost-Sensitive Learning**: The Voting Classifier surpassed all other models with a recall of 0.785 and high precision (92.7%).
 
+It is important to note that resampling the minority class before cross-validation can cause overfitting, as it risks creating synthetic or duplicate samples that overlap between training and validation sets. This undermines the integrity of cross-validation, leading to overly optimistic and misleading results. To avoid this, resampling should be performed within each cross-validation fold, ensuring synthetic data is generated exclusively from the training set without contaminating the validation set.  
+
+<p align="center">
+  <img src="figs/CrossValResampling.png" width="500" style="border-radius: 0%;">
+</p>
+<p align="center">
+  <em>Image source: <a href="https://www.marcoaltini.com/blog/dealing-with-imbalanced-data-undersampling-oversampling-and-proper-cross-validation">Marco Altini</a></em>
+</p>
+
 ## Conclusions
 The project demonstrates the importance of balancing techniques in fraud detection for imbalanced datasets. The Voting Classifier with cost-sensitive learning proved to be the most effective approach, achieving:
 - High precision and accuracy in identifying fraudulent transactions.
@@ -92,4 +105,6 @@ The study underscores the need for a careful trade-off between precision and rec
 
 ## Contributors
 - **Marc Serra Ortega** - Universitat Autònoma de Barcelona (UAB)
-
+  
+## License
+This project is licensed under the [MIT License](LICENSE).
